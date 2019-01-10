@@ -1,6 +1,5 @@
 import React from 'react';
-//import disease from './disease.png';
-import logo from './logo.png';
+
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import u from './view.css';
 import ProgressBar from 'react-progressbar';
@@ -53,20 +52,44 @@ class ViewFile extends React.Component {
     return (
 
       <div>
+        <PageHeader>Pest Detected!</PageHeader>
         <div className="row">
-          <div className="col-lg-8">
-            <PageHeader>Pest Deteced!</PageHeader>
+          <div className="col-lg-5">
+            <Panel
+              header={<span>Pest</span>} className="panel-primary"
+              footer={<span></span>}
+            >
+                <span>
+                      <img src='pest.png' />
+                </span>
+            </Panel>
+          </div>
+          <div className="col-lg-3">
+            <Panel
+              header={<span>Description</span>} className="panel-primary"
+              footer={<span></span>}
+            >
+              <div>
+                <p>Bollworm larva on boll is detected</p>
+                <p>Farm spread: 5% of farm</p>
+                <p>Type: Pest</p>
+                <p>Stage: Initial</p>
+                <p>Severity: Moderate</p>
+                <p>Click <a href="http://ipm.ucanr.edu/PMG/r114300511.html">here</a> to know more about it and various treatments.
+                </p>
+              </div>
+            </Panel>
           </div>
         </div>
 
-        <span>
-              <img src={'./pest.png'} />
-        </span>
 
         <div className="row">
 
           <div className="col-lg-8">
-            <Panel header={<span>Detection</span>}>
+            <Panel
+              header={<span>Farm View</span>} className="panel-primary"
+              footer={<span></span>}
+            >
 
               <div>
                 <XYPlot
@@ -75,7 +98,7 @@ class ViewFile extends React.Component {
                   width={999}
                   getX={d => d.waiting}
                   getY={d => d.eruptions}
-                  onMouseLeave={() => this.setState({hoveredNode: null})}
+                  //onMouseLeave={() => this.setState({hoveredNode: null})}
                   height={999}
                 >
                   <HexbinSeries
@@ -85,7 +108,7 @@ class ViewFile extends React.Component {
                       stroke: '#125C77',
                       strokeLinejoin: 'round'
                     }}
-                    onValueMouseOver={d => this.setState({hoveredNode: d})}
+                    //onValueMouseOver={d => this.setState({hoveredNode: d})}
                     xOffset={offset}
                     yOffset={offset}
                     colorRange={['green', 'red']}

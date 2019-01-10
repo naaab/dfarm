@@ -28,11 +28,14 @@ import displayView from '../dashboardPages/view/view';
 const title = 'DigiFarm - an intelligent farming!';
 
 
+
 const dataHistory = [
-  { name: 'September', Diseases: 100, Pests: 100, DryPatches: 100, GrowthIssues: 100, AllGood: 600 },
-  { name: 'October', Diseases: 50, Pests: 100, DryPatches: 100, GrowthIssues: 100, AllGood: 650 },
+  { name: 'August', Diseases: 25, Pests: 25, DryPatches: 25, GrowthIssues: 25, AllGood: 900 },
+  { name: 'September', Diseases: 50, Pests: 50, DryPatches: 50, GrowthIssues: 50, AllGood: 800 },
+  { name: 'October', Diseases: 100, Pests: 100, DryPatches: 100, GrowthIssues: 100, AllGood: 600 },
   { name: 'Novermber', Diseases: 50, Pests: 50, DryPatches: 100, GrowthIssues: 100, AllGood: 700 },
-  { name: 'December', Diseases: 50, Pests: 50, DryPatches: 50, GrowthIssues: 50, AllGood: 800 }
+  { name: 'December', Diseases: 50, Pests: 50, DryPatches: 50, GrowthIssues: 50, AllGood: 800 },
+  { name: 'January', Diseases: 25, Pests: 25, DryPatches: 25, GrowthIssues: 25, AllGood: 900 }
 ];
 
 const data = [
@@ -71,7 +74,7 @@ class Home extends React.Component {
       <div>
         <div className="row">
           <div className="col-lg-12">
-            <PageHeader>Dashboard</PageHeader>
+            <PageHeader>Account ID: 1897898</PageHeader>
           </div>
         </div>
 
@@ -99,11 +102,11 @@ class Home extends React.Component {
                     <YAxis />
                     <CartesianGrid stroke="#ccc" />
                     <Tooltip />
-                    <Area type="monotone" dataKey="Diseases" stackId="1" stroke="#8884d8" fill="#FF334F" />
-                    <Area type="monotone" dataKey="Pests" stackId="1" stroke="#82ca9d" fill="#9033FF" />
-                    <Area type="monotone" dataKey="DryPatches" stackId="1" stroke="#ffc658" fill="#873600" />
-                    <Area type="monotone" dataKey="GrowthIssues" stackId="1" stroke="#ffc658" fill="#F9FF33" />
-                    <Area type="monotone" dataKey="AllGood" stackId="1" stroke="#ffc658" fill="#027007" />
+                    <Area type="monotone" dataKey="Diseases" stackId="1" stroke="#FF334F" fill="#FF334F" />
+                    <Area type="monotone" dataKey="Pests" stackId="1" stroke="#9033FF" fill="#9033FF" />
+                    <Area type="monotone" dataKey="DryPatches" stackId="1" stroke="#873600" fill="#873600" />
+                    <Area type="monotone" dataKey="GrowthIssues" stackId="1" stroke="#F9FF33" fill="#F9FF33" />
+                    <Area type="monotone" dataKey="AllGood" stackId="1" stroke="#027007" fill="#027007" />
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
@@ -130,9 +133,9 @@ class Home extends React.Component {
                         </p>
                       </div>
                       <div className="timeline-body">
-                        <p>5% of plats are detected with 'Alternaria macrospora' - initial stage.
+                        <p>5% of plants are detected with 'Alternaria macrospora' - initial stage.
                           Click here to know about this disease and how to take care of them.</p>
-                        <p>Few plats are detected with 'Alternaria macrospora'</p>
+                        <p>Few plants are detected with 'Alternaria macrospora'</p>
                         <p>Overall health growth: Good</p>
                       </div>
                     </div>
@@ -168,9 +171,9 @@ class Home extends React.Component {
                         </p>
                       </div>
                       <div className="timeline-body">
-                        <p>5% of plats are detected with 'Alternaria macrospora' - initial stage.
+                        <p>5% of plants are detected with 'Alternaria macrospora' - initial stage.
                           Click here to know about this disease and how to take care of them.</p>
-                        <p>Few plats are detected with 'Alternaria macrospora'</p>
+                        <p>Few plants are detected with 'Alternaria macrospora'</p>
                         <p>Overall health growth: Good</p>
                       </div>
                     </div>
@@ -206,7 +209,7 @@ class Home extends React.Component {
                         </p>
                       </div>
                       <div className="timeline-body">
-                        <p>Few plats are detected with 'Alternaria macrospora'.
+                        <p>Few plants are detected with 'Alternaria macrospora'.
                           Click here to know about this disease and how to take care of them.</p>
                         <p>Overall health growth: Good</p>
                       </div>
@@ -264,30 +267,42 @@ class Home extends React.Component {
               <ListGroup>
 
                 <ListGroupItem href="" >
-                  <div onClick = {this.goPest}>
-                    <i className="fa fa-exclamation-circle fa-fw" /> Pest Detected!
-                    <span className="pull-right text-muted small"><em>8 hours ago</em></span>
+                  <div onClick = {this.goPest} className="newColor">
+                    <i className="fa fa-exclamation-circle fa-fw newColor" />
+                      <font color="red">Pest Detected</font>
+                    <span className="pull-right text-muted small">
+                      <em><font color="red">8 hours ago</font></em>
+                    </span>
                   </div>
                 </ListGroupItem>
 
                 <ListGroupItem href="" >
                   <div onClick = {this.goDisease}>
-                    <i className="fa fa-exclamation-circle fa-fw" /> Diseases Detected!
-                    <span className="pull-right text-muted small"><em>8 hours ago</em></span>
+                    <i className="fa fa-exclamation-circle fa-fw" />
+                    <font color="red">Diseases Detected!</font>
+                    <span className="pull-right text-muted small">
+                      <em><font color="red">8 hours ago</font></em>
+                    </span>
                   </div>
                 </ListGroupItem>
 
                 <ListGroupItem href="" >
                   <div onClick = {this.goWeed}>
-                    <i className="fa fa-exclamation-circle fa-fw" /> Weed Detected!
-                    <span className="pull-right text-muted small"><em>8 hours ago</em></span>
+                    <i className="fa fa-exclamation-circle fa-fw" />
+                    <font color="red">Weed Detected!</font>
+                    <span className="pull-right text-muted small">
+                      <em><font color="red">8 hours ago</font></em>
+                    </span>
                   </div>
                 </ListGroupItem>
 
                 <ListGroupItem href="" >
                   <div onClick = {this.goDryPatch}>
-                    <i className="fa fa-exclamation-circle fa-fw" /> Dry Pathces Detected!
-                    <span className="pull-right text-muted small"><em>8 hours ago</em></span>
+                    <i className="fa fa-exclamation-circle fa-fw" />
+                    <font color="red">Dry Pathces Detected!</font>
+                    <span className="pull-right text-muted small">
+                      <em><font color="red">8 hours ago</font></em>
+                    </span>
                   </div>
                 </ListGroupItem>
 

@@ -46,19 +46,42 @@ class ViewFile extends React.Component {
     return (
 
       <div>
+        <PageHeader>Weed Detected!</PageHeader>
         <div className="row">
-          <div className="col-lg-8">
-            <PageHeader>Weed Detected!</PageHeader>
+          <div className="col-lg-6">
+            <Panel
+              header={<span>Weed</span>} className="panel-primary"
+              footer={<span></span>}
+            >
+                <span>
+                      <img src='weed.png' />
+                </span>
+            </Panel>
+          </div>
+          <div className="col-lg-3">
+            <Panel
+              header={<span>Description</span>} className="panel-primary"
+              footer={<span></span>}
+            >
+              <div>
+                <p>Barnyardgrass - Weed is detected</p>
+                <p>Farm spread: 15% of farm</p>
+                <p>Type: Weed</p>
+                <p>Stage: Initial</p>
+                <p>Severity: Moderate</p>
+                <p>Click <a href="https://www.amazon.com/Percent-Herbicide-Natures-Wisdom-Distilled/dp/B0031AY1LA/ref=asc_df_B0031AY1LA/?tag=hyprod-20&linkCode=df0&hvadid=193142362025&hvpos=1o2&hvnetw=g&hvrand=18332385521944282406&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9028226&hvtargid=pla-311639442201&psc=1">here</a> to know more about it and various treatments.
+                </p>
+              </div>
+            </Panel>
           </div>
         </div>
 
-        <span>
-              <img src={'./weed.png'} />
-        </span>
-
         <div className="row">
           <div className="col-lg-8">
-            <Panel header={<span>Detection</span>}>
+                        <Panel
+                          header={<span>Farm View</span>} className="panel-primary"
+                          footer={<span></span>}
+                        >
 
               <div>
                 <XYPlot
@@ -67,7 +90,7 @@ class ViewFile extends React.Component {
                   width={999}
                   getX={d => d.waiting}
                   getY={d => d.eruptions}
-                  onMouseLeave={() => this.setState({hoveredNode: null})}
+                  //onMouseLeave={() => this.setState({hoveredNode: null})}
                   height={999}
                 >
                   <HexbinSeries
@@ -77,7 +100,7 @@ class ViewFile extends React.Component {
                       stroke: '#125C77',
                       strokeLinejoin: 'round'
                     }}
-                    onValueMouseOver={d => this.setState({hoveredNode: d})}
+                    //onValueMouseOver={d => this.setState({hoveredNode: d})}
                     xOffset={offset}
                     yOffset={offset}
                     colorRange={['green', 'red']}

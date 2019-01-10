@@ -37,3 +37,7 @@
 .newsDesc {
   display: block;
 }
+
+.newColor {
+  background-color: rgba(50, 70, 200, 0.3);
+}

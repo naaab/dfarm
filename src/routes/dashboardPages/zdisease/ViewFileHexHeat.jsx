@@ -46,18 +46,42 @@ class ViewFile extends React.Component {
     return (
 
       <div>
+        <PageHeader>Cotton Leaves Diseases Detected!</PageHeader>
         <div className="row">
-          <div className="col-lg-8">
-            <PageHeader>Cotton Leaves Diseases Detected!</PageHeader>
+          <div className="col-lg-4">
+            <Panel
+              header={<span>Cotton Leaves Diseases</span>} className="panel-primary"
+              footer={<span></span>}
+            >
+                <span>
+                      <img src='disease.png' />
+                </span>
+            </Panel>
+          </div>
+          <div className="col-lg-3">
+            <Panel
+              header={<span>Description</span>} className="panel-primary"
+              footer={<span></span>}
+            >
+              <div>
+                <p>Alternaria leaf spot is detected</p>
+                <p>Farm spread: 2% of farm</p>
+                <p>Type: Leaves Diseases (Fungal)</p>
+                <p>Stage: Initial</p>
+                <p>Severity: Moderate</p>
+                <p>Click <a href="http://ipm.ucanr.edu/PMG/r114300511.html">here</a> to know more about it and various treatments.
+                </p>
+              </div>
+            </Panel>
           </div>
         </div>
-        <span>
-              <img src={'./disease.png'} />
-        </span>
 
         <div className="row">
           <div className="col-lg-8">
-            <Panel header={<span>Detection</span>}>
+            <Panel
+              header={<span>Farm View</span>} className="panel-primary"
+              footer={<span></span>}
+            >
 
               <div>
                 <XYPlot
@@ -66,7 +90,7 @@ class ViewFile extends React.Component {
                   width={999}
                   getX={d => d.waiting}
                   getY={d => d.eruptions}
-                  onMouseLeave={() => this.setState({hoveredNode: null})}
+                  //onMouseLeave={() => this.setState({hoveredNode: null})}
                   height={999}
                 >
                   <HexbinSeries
@@ -76,7 +100,7 @@ class ViewFile extends React.Component {
                       stroke: '#125C77',
                       strokeLinejoin: 'round'
                     }}
-                    onValueMouseOver={d => this.setState({hoveredNode: d})}
+                    //onValueMouseOver={d => this.setState({hoveredNode: d})}
                     xOffset={offset}
                     yOffset={offset}
                     colorRange={['green', 'red']}
